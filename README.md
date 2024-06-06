@@ -50,7 +50,7 @@ docker build --build-arg="VOLTA_USER=jotaro" .
 
 ### `VOLTA_FEATURE_PNPM`
 This enables the `pnpm` support. Its value is set to `1` by default.
-You can find more information in [the volta pnpm support page.](https://docs.volta.sh/advanced/pnpm).
+You can find more information in [the volta pnpm support page](https://docs.volta.sh/advanced/pnpm).
 
 ### `RUN_PACKAGE_MANAGER`
 This runs the default package manager if set to `1`.
