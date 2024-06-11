@@ -7,10 +7,10 @@ RUN apt update && apt install -y curl
 
 # Build arguments
 ARG VOLTA_USER=volta
-ARG NODE_VERSION=latest
-ARG PACKAGE_MANAGER=npm
 
 # Variables
+ENV NODE_VERSION=latest
+ENV PACKAGE_MANAGER=npm
 ENV SHELL="/bin/bash"
 ENV PACKAGE_MANAGER=${PACKAGE_MANAGER}
 ENV HOME=/home/${VOLTA_USER}
@@ -35,9 +35,5 @@ RUN curl https://get.volta.sh | bash
 ENV VOLTA_HOME="${HOME}/.volta"
 ENV PATH="${VOLTA_HOME}/bin:${PATH}"
 ENV VOLTA_FEATURE_PNPM=1
-
-# Installing base volta tools
-RUN volta install node@${NODE_VERSION}
-RUN volta install ${PACKAGE_MANAGER}
 
 ENTRYPOINT ["/entrypoint.sh"]

@@ -5,6 +5,9 @@ if [ -z "$PACKAGE_MANAGER" ]; then
     exit 1
 fi
 
+volta install node@${NODE_VERSION}
+volta install ${PACKAGE_MANAGER}
+
 if [ $RUN_PACKAGE_MANAGER -eq 0 ]; then
     sleep infinity
     exit 0
