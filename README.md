@@ -22,23 +22,6 @@ docker run -d volta.sh:latest
 
 In order to customize your image, you can pass arguments to docker before the building process.
 
-### `NODE_VERSION`
-The default `node` version installed when building the image. `latest` by default.
-
-```sh
-# This will run volta install node@16 during build.
-docker build --build-arg="NODE_VERSION=16" .
-```
-
-### `PACKAGE_MANAGER`
-The default package manager used inside the container. 
-Possible values are `npm`, `yarn` and `pnpm`, `npm` by default.
-
-```sh
-# This will run volta install yarn during build.
-docker build --build-arg="PACKAGE_MANAGER=yarn" .
-```
-
 ### `VOLTA_USER`
 The user created inside the container. `volta` by default.
 
@@ -47,6 +30,23 @@ docker build --build-arg="VOLTA_USER=jotaro" .
 ```
 
 ## Env variables
+
+### `NODE_VERSION`
+The default `node` version installed when starting the image. `latest` by default.
+
+```sh
+# This will run volta install node@16.
+docker run -d -e "NODE_VERSION=16" nicoolangood/volta.sh
+```
+
+### `PACKAGE_MANAGER`
+The default package manager used inside the container. 
+Possible values are `npm`, `yarn` and `pnpm`, `npm` by default.
+
+```sh
+# This will run volta install yarn.
+docker run -d -e "PACKAGE_MANAGER=yarn" nicoolangood/volta.sh
+```
 
 ### `VOLTA_FEATURE_PNPM`
 This enables the `pnpm` support. Its value is set to `1` by default.
